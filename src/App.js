@@ -15,7 +15,7 @@ const App = () => {
   };
 
   const handleAddNumber = (num) => {
-    setCurrentNumber(prev => prev === '0' ? num : prev + num);
+    setCurrentNumber((prev) => (prev === '0' ? num : prev + num));
   };
 
   const handleOperation = (op) => {
@@ -24,12 +24,12 @@ const App = () => {
       setCurrentNumber('0');
       setOperation(op);
     } else {
-      calculateResult();
+      executeOperation();
       setOperation(op);
     }
   };
 
-  const calculateResult = () => {
+  const executeOperation = () => {
     if (firstNumber !== '0' && operation !== '' && currentNumber !== '0') {
       const num1 = parseFloat(firstNumber);
       const num2 = parseFloat(currentNumber);
@@ -84,7 +84,7 @@ const App = () => {
           <Button label="1" onClick={() => handleAddNumber('1')} />
           <Button label="2" onClick={() => handleAddNumber('2')} />
           <Button label="3" onClick={() => handleAddNumber('3')} />
-          <Button label="=" onClick={calculateResult} />
+          <Button label="=" onClick={executeOperation} />
         </Row>
       </Content>
     </Container>
